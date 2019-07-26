@@ -110,8 +110,17 @@ $(document).ready(function() {
                    bird.animate({top:"-=40"} ,200);
                key_up=false;
            }
-
        });
+
+       // for touch screen
+      document.addEventListener('touchstart', function(){         
+        if(the_game!=null ){     /* the_game is running or not */
+            key_up=true;
+            if ( parseInt(bird.css('top'))>-10)    /* do not let go out of container */
+                bird.animate({top:"-=40"} ,200);
+            key_up=false;
+        }
+      });
 
        /* Function for stopping the game */
        function stop_the_game(){
